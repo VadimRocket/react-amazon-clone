@@ -11,15 +11,17 @@ function App() {
       <div className="app">
       {/* home, login, checkout */}
       <Switch>
-        <Route path="/">
-          <Header />
-          <Home />
-        </Route>
         <Route path="/login">
+           <Header />
           <h2>login page</h2>
         </Route>
         <Route path="/checkout">
+          <Header />
           <h2>checkout page</h2>
+        </Route>
+        <Route path="/">
+          <Header />
+          <Home />
         </Route>
       </Switch>
     </div>
