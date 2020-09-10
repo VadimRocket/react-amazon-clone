@@ -7,7 +7,7 @@ import { actionTypes } from './reducer';
 
 function Checkout() {
 
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
    function removeFromBasket(id) {
        dispatch({
@@ -19,10 +19,9 @@ function Checkout() {
         <div className='checkout'>
             <div className="checkout__left">
                 <img className="checkout__banner"  src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423592668_.jpg"
-                    alt="Checkout banner"/>
-
-                  
-                <div>
+                    alt="Checkout banner"/>         
+               
+                    <h4 className="checkout__subtitle">Hello {user?.email}</h4>
                     <h2 className="checkout__title">Your Shopping basket</h2>
                     {  basket.map( product => (
                      <CheckoutProduct
@@ -36,7 +35,7 @@ function Checkout() {
                      /> 
                      )
                     )}
-                </div>  
+                
             </div>
             <div className="checkout__right">
                 <Subtotal />

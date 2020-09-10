@@ -2,7 +2,7 @@ import React from 'react'
 import './Login.css'
 import { Link, useHistory } from 'react-router-dom'; 
 import logo from '../images/amazon_logo.png';
-import {db, auth} from './firebase';
+import { auth } from './firebase';
 
 function Login() {
     const [ email, setEmail] = React.useState('');
@@ -23,7 +23,7 @@ function Login() {
         e.preventDefault()
         auth.createUserWithEmailAndPassword(email, password)
         .then((auth) => {   
-            console.log(auth)
+            // console.log(auth)
             // if true, redirect
             if(auth) {
                 history.push('/')
