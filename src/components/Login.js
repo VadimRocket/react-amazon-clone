@@ -1,17 +1,36 @@
 import React from 'react'
 import './Login.css'
-import { Link } from 'react-router-dom'; 
+import { Link, useHistory } from 'react-router-dom'; 
 import logo from '../images/amazon_logo.png';
+import {db, auth} from './firebase';
 
 function Login() {
     const [ email, setEmail] = React.useState('');
     const [ password, setPassword] = React.useState('');
+    const history = useHistory()
 
     function signIn(e) {
         e.preventDefault()
+        auth.signInWithEmailAndPassword(email, password)
+        .then(auth => {
+            history.push('/')
+        })
+        .catch(error => alert(error.message))    
     } 
+
+    // create a new user with email and password
     function register(e) {
         e.preventDefault()
+        auth.createUserWithEmailAndPassword(email, password)
+        .then((auth) => {   
+            console.log(auth)
+            // if true, redirect
+            if(auth) {
+                history.push('/')
+            }
+        })
+        .catch(error => alert(error.message))
+        // Users: e.g: test@test.tt pass: 123123123 uniq id: USwknPlWxXPazmlDXwPb9NAJZg93
     } 
 
     return (
