@@ -33,8 +33,8 @@ function Product({ id, title,  price, rating, image}) {
                     {
                         Array(rating)
                         .fill()
-                        .map((_, id) => (
-                            <p  key={id}><StarIcon fontSize="small" /></p>
+                        .map((_,index) => (
+                            <p key={index}><StarIcon fontSize="small" /></p>
                         ))
                     }
                 </div>
