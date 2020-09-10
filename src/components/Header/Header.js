@@ -9,7 +9,8 @@ import {auth} from '../../firebase/firebase';
 
 function Header() {
 
-    const [{basket, user}, dispatch] = useStateValue();
+    // const [{basket, user}, dispatch] = useStateValue();
+    const [{basket, user}] = useStateValue();
 
     function handleAuth() {
         if(user) {
@@ -20,8 +21,8 @@ function Header() {
         <nav className='header'>
             {/* logo */}
             <Link to='/'>
-            <img className="header__logo" src={logo} alt='' /> 
-            </Link>
+                <img className="header__logo" src={logo} alt='' /> 
+            </ Link>
             {/* search-box */}
             <div className='header__search'>
                <input className='header__searchInput' type='text' />

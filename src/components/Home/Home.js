@@ -30,6 +30,23 @@ export default function Home() {
                         rating={4}
                     />
            </div>
+           <div className="home__row">
+                    {/* Product */}
+                    <Product
+                        id="7"
+                        title="AmazonBasics Electric Glass and Steel Kettle - 1.7-Liter"
+                        price={27.71}
+                        rating={4.1}
+                        image="https://images-na.ssl-images-amazon.com/images/I/812C5q3i5%2BL._AC_SL1500_.jpg"
+                    />
+                     <Product
+                        id="8"
+                        title="AmazonBasics Steel, Security Safe Lock Box, Black - 1.2 Cubic Feet & AA Performance Alkaline Batteries - Pack of 20"
+                        price={70.41}
+                        rating={4.5}
+                        image="https://images-na.ssl-images-amazon.com/images/I/718l03qCcJL._AC_SL1000_.jpg"
+                    />
+            </div>
            <div className='home__row'>
                 <Product
                     id='4'

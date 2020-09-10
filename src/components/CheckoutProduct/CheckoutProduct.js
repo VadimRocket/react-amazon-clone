@@ -1,9 +1,11 @@
 import React from 'react'
-import StarIcon from '@material-ui/icons/Star';
 import './CheckoutProduct.css'
 
+import ProductRating from '../ProductRating/ProductRating';
 
-const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref) =>  (
+
+const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref ) =>  (
+  
         <div className="checkoutProduct" ref={ref}>
             <img className="checkoutProduct__image" src={image} alt={title} />
             <div className="checkoutProduct__info">
@@ -13,11 +15,7 @@ const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, re
                     <strong>{price}</strong>
                 </p>
                 <div className="checkoutProduct__rating">
-                    {
-                        Array(rating)
-                        .fill()
-                        .map((_, id) => ( <p  key={id}><StarIcon fontSize="small" /></p>)) 
-                    }
+                   <ProductRating rating={rating}/>
                 </div>
                 <button onClick={() => removeProduct(id)}>Delete</button>
             </div>

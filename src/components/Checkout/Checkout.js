@@ -12,11 +12,10 @@ function Checkout() {
    function removeFromBasket(id) {
        dispatch({
         type: actionTypes.REMOVE_FROM_BASKET,
-        id,
+        id:id,
        })
    }
 
-   
     return (
         <div className='checkout'>
             <div className="checkout__left">
@@ -24,8 +23,10 @@ function Checkout() {
                     alt="Checkout banner"/>         
                
                     <h4 className="checkout__subtitle">{user ? `Hello ${user?.email}` : `Hello Guest`}</h4>
-                    <h2 className="checkout__title">Your Shopping basket</h2>
-                  
+                    {basket?.length === 0 ? (
+                        <h2 className="checkout__title">Your basket is empty</h2>
+                    ) : (
+
                     <FlipMove
                         duration={350}
                         delay={70}
@@ -33,9 +34,9 @@ function Checkout() {
                         staggerDurationBy={30}
                     >
 
-                    {  basket.map( (product,i) => (
+                    { basket.map( (product, index) => (
                      <CheckoutProduct
-                        key={i}
+                        key={index}
                         id={product.id}
                         title={product.title}
                         image={product.image}
@@ -46,6 +47,7 @@ function Checkout() {
                      )
                     )}
                     </FlipMove>
+                    )}
             </div>
             <div className="checkout__right">
                 <Subtotal />
