@@ -23,19 +23,19 @@ function Checkout() {
                 <img className="checkout__banner"  src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423592668_.jpg"
                     alt="Checkout banner"/>         
                
-                    <h4 className="checkout__subtitle">Hello {user?.email}</h4>
+                    <h4 className="checkout__subtitle">{user ? `Hello ${user?.email}` : `Hello Guest`}</h4>
                     <h2 className="checkout__title">Your Shopping basket</h2>
                   
                     <FlipMove
                         duration={350}
                         delay={70}
                         easing='ease'
-                        staggerDurationBy={50}
+                        staggerDurationBy={30}
                     >
 
-                    {  basket.map( product => (
+                    {  basket.map( (product,i) => (
                      <CheckoutProduct
-                        key={product.id}
+                        key={i}
                         id={product.id}
                         title={product.title}
                         image={product.image}
