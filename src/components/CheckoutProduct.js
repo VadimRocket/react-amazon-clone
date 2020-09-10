@@ -3,10 +3,8 @@ import StarIcon from '@material-ui/icons/Star';
 import './CheckoutProduct.css'
 
 
-function CheckoutProduct({ id, title, image, price, rating, removeProduct }) {
-
-    return (
-        <div className="checkoutProduct">
+const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref) =>  (
+        <div className="checkoutProduct" ref={ref}>
             <img className="checkoutProduct__image" src={image} alt={title} />
             <div className="checkoutProduct__info">
                 <p className="checkoutProduct__title">{title}</p>
@@ -24,7 +22,7 @@ function CheckoutProduct({ id, title, image, price, rating, removeProduct }) {
                 <button onClick={() => removeProduct(id)}>Delete</button>
             </div>
         </div>
-    )
-}
+ ));
+
 
 export default CheckoutProduct
