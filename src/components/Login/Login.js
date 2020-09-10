@@ -7,7 +7,12 @@ import { auth } from '../../firebase/firebase';
 function Login() {
     const [ email, setEmail] = React.useState('');
     const [ password, setPassword] = React.useState('');
-    const history = useHistory()
+    const history = useHistory();
+    // focus 1 input
+    const ref = React.useRef();
+    React.useEffect(() => {
+      ref.current.focus();
+    }, []);
 
     function signIn(e) {
         e.preventDefault()
@@ -39,7 +44,7 @@ function Login() {
                 <h1>Sign-In</h1>
                 <form>
                     <h5>E-mail</h5>
-                    <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
+                    <input type='text' value={email} onChange={e => setEmail(e.target.value)}  ref={(input) => (ref.current = input)} />
 
                     <h5>Password</h5>
                     <input type='password'  value={password}  onChange={e => setPassword(e.target.value)} />
