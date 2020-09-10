@@ -33,10 +33,21 @@
 
 .login__box > form > input {
     margin-bottom: 10px;
-    height: 30px;
-    width: 98%;
+    width: 100%;
+    padding: 3px 7px;
+    box-sizing: border-box;
     background-color: #fff;
-    padding-left: 5px;
+    height: 31px;
+    line-height: normal;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
+    outline: 0;
+}
+.login__box > form > input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
 }
 
 .login__box > p {
@@ -52,17 +63,24 @@
     cursor: pointer;
     border-style: solid;
     border-width: 1px;
-    background: #f0c14b;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
     border-radius: 3px;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
 }
+.login__signInBtn:hover {
+    background: #f0c14b;
+}
+
 .login__registerBtn {
     cursor: pointer;
     border-style: solid;
     border-width: 1px;
-    background-color: lightgray;
+    background-color: #eff0f3;
     border-radius: 3px;
     margin-top: 10px;
     height: 30px;
+}
+.login__registerBtn:hover {
+    background-color: #e4e5e6;
 }

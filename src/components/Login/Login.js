@@ -1,7 +1,7 @@
 import React from 'react'
 import './Login.css'
 import { Link, useHistory } from 'react-router-dom'; 
-import logo from '../../images/amazon_logo.png';
+import logo from '../../images/amazonLogoBlack.png';
 import { auth } from '../../firebase/firebase';
 
 function Login() {
@@ -30,14 +30,13 @@ function Login() {
             }
         })
         .catch(error => alert(error.message))
-        // Users: e.g: test@test.tt pass: 123123123 uniq id: USwknPlWxXPazmlDXwPb9NAJZg93
     } 
 
     return (
         <div className='login'>
             <Link to="/"><img className="login__logo" src={logo} alt='logo' /></Link>
             <div className='login__box'>
-                <h1>Sign in</h1>
+                <h1>Sign-In</h1>
                 <form>
                     <h5>E-mail</h5>
                     <input type='text' value={email} onChange={e => setEmail(e.target.value)} />

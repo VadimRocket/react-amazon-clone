@@ -27,6 +27,8 @@
     height: 22px!important;
     background-color: #F3A847;
     cursor: pointer;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .header__nav {

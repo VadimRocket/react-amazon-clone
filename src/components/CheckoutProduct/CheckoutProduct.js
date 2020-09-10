@@ -1,11 +1,10 @@
 import React from 'react'
 import './CheckoutProduct.css'
-
 import ProductRating from '../ProductRating/ProductRating';
 
-
-const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref ) =>  (
-  
+// const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref ) =>  (
+    const CheckoutProduct = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref) => {
+        return (
         <div className="checkoutProduct" ref={ref}>
             <img className="checkoutProduct__image" src={image} alt={title} />
             <div className="checkoutProduct__info">
@@ -20,7 +19,8 @@ const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, re
                 <button onClick={() => removeProduct(id)}>Delete</button>
             </div>
         </div>
- ));
+   )
+})
 
 
 export default CheckoutProduct
