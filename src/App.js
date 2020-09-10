@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import Header from './components/Header';
 import Home from './components/Home';
+import Checkout from './components/Checkout'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         </Route>
         <Route path="/checkout">
           <Header />
-          <h2>checkout page</h2>
+          <Checkout />
         </Route>
         <Route path="/">
           <Header />
