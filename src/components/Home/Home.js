@@ -1,12 +1,12 @@
 import React from 'react'
-import banner from '../images/video_banner.jpg';
+import banner from '../../images/video_banner.jpg';
 import './Home.css';
-import Product from '../components/Product';
+import Product from '../Product/Product';
 
 export default function Home() {
     return (
         <div className='home'>
-           <img className="home__banner" src={banner} alt='' /> 
+           <img className="home__banner" src={banner} alt='home-banner' /> 
            <div className="home__row">
                     <Product
                         id='1'

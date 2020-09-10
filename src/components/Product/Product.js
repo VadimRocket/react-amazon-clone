@@ -1,8 +1,8 @@
 import React from 'react'
 import './Product.css';
 import StarIcon from '@material-ui/icons/Star';
-import { useStateValue } from './StateProvider';
-import { actionTypes } from './reducer';
+import { useStateValue } from '../../context/StateProvider';
+import { actionTypes } from '../../context/reducer';
 
 function Product({ id, title,  price, rating, image}) {
 
@@ -39,7 +39,7 @@ function Product({ id, title,  price, rating, image}) {
                     }
                 </div>
             </div>
-            <img src={image} />
+            <img src={image}  alt='' />
             <button onClick={addToBasket}>Add to Cart</button>
         </div>
     )

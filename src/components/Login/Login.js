@@ -1,8 +1,8 @@
 import React from 'react'
 import './Login.css'
 import { Link, useHistory } from 'react-router-dom'; 
-import logo from '../images/amazon_logo.png';
-import { auth } from './firebase';
+import logo from '../../images/amazon_logo.png';
+import { auth } from '../../firebase/firebase';
 
 function Login() {
     const [ email, setEmail] = React.useState('');

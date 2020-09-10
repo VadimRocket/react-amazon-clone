@@ -1,11 +1,11 @@
 import React from 'react';
 import './Header.css';
-import logo from '../images/amazon_logo.png';
+import logo from '../../images/amazon_logo.png';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import { useStateValue } from './StateProvider';
-import {auth} from './firebase';
+import { useStateValue } from '../../context/StateProvider';
+import {auth} from '../../firebase/firebase';
 
 function Header() {
 
