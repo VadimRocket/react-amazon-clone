@@ -8,6 +8,7 @@ import CurrencyFormat from "react-currency-format"
 import { getBasketTotal } from '../../context/reducer';
 import { actionTypes } from '../../context/reducer';
 import axios from '../../context/axios';
+import { db } from '../../firebase/firebase';
 
 function Payment() {
     const [{basket, user},dispatch] = useStateValue();
@@ -39,6 +40,7 @@ function Payment() {
     },[basket])
 
     console.log('the secret is >>> ', clientSecret)
+    console.log("user", user)
 
     // for the form: cb fn
     async function handleSubmit(event) {
@@ -52,15 +54,30 @@ function Payment() {
             }
             // paymentIntent платежное намерение
         }).then(({paymentIntent}) => {
+            // added users and orders with data into Cloud Firestore if paymentIntent true 
+            db
+              .collection('users')
+              .doc(user?.uid)
+              .collection('orders')
+              .doc(paymentIntent.id)
+              .set({
+                  basket: basket,
+                  amount: paymentIntent.amount,
+                  created: paymentIntent.created
+              })
+
+
+
+
             // paymentIntent = payment confirmation
             setSucceeded(true);
             setError(null)
             setProcessing(false)
-            
+           
             dispatch({
                 type: actionTypes.EMPTY_BASKET
             })
-
+            // redirect to orders
             history.replace('/orders')
         })
     }
