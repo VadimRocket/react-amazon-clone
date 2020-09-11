@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from "react-currency-format"
 import { getBasketTotal } from '../../context/reducer';
-import axios from 'axios'
+import axios from '../../context/axios';
 
 function Payment() {
     const [{basket, user},dispatch] = useStateValue();
@@ -28,13 +28,16 @@ function Payment() {
             // stripe expects the total
             const response = await axios({
                 method: 'post',
-                url: `/payments/create?total=${ getBasketTotal(basket) }`
+                // Stripe expects the total in the curr subunits
+                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             })
             setClientSecret(response.data.clientSecret)
         }
-        getClientSecret()
+        getClientSecret();
 
     },[basket])
+
+    console.log('the secret is >>> ', clientSecret)
 
     // for the form: cb fn
     async function handleSubmit(event) {
