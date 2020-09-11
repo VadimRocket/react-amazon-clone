@@ -2,10 +2,11 @@ import React from 'react'
 import './Payment.css'
 import { useStateValue } from '../../context/StateProvider'
 import CheckoutProduct from '../CheckoutProduct/CheckoutProduct';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from "react-currency-format"
 import { getBasketTotal } from '../../context/reducer';
+import axios from 'axios'
 
 function Payment() {
     const [{basket, user},dispatch] = useStateValue();
@@ -17,13 +18,43 @@ function Payment() {
     const [disabled, setDisabled] = React.useState(true);
     const [succeeded, setSucceeded] = React.useState(false);
     const [processing, setProcessing] = React.useState('');
+    const [clientSecret, setClientSecret] = React.useState(true);
+    
+    const history = useHistory();
 
+    React.useEffect(() => {
+        // generate stripe secret witch allows us to charge a customer
+        const getClientSecret = async () => {
+            // stripe expects the total
+            const response = await axios({
+                method: 'post',
+                url: `/payments/create?total=${ getBasketTotal(basket) }`
+            })
+            setClientSecret(response.data.clientSecret)
+        }
+        getClientSecret()
 
+    },[basket])
 
     // for the form: cb fn
     async function handleSubmit(event) {
         // stripe stuff
         event.preventDefault();
+        setProcessing(true);
+
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+            // paymentIntent платежное намерение
+        }).then(({paymentIntent}) => {
+            // paymentIntent = payment confirmation
+            setSucceeded(true);
+            setError(null)
+            setProcessing(false)
+
+            history.replace('/orders')
+        })
     }
     // for the cardElement: cb fn
     // listen all changes in the cardElement. Display errors 
