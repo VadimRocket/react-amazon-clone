@@ -21,6 +21,17 @@
 .payment__title {
  flex: .2;
 }
-.payment__address, .payment__items {
+.payment__address, .payment__items, .payment__details {
     flex: .8;
+}
+.payment__address, .payment__details .card-element  {
+    color: rgb(32, 32, 32);
+}
+.payment__priceBox > h3 {
+    font-size: .8em;
+    margin: 40px 0 0 0;
+}
+
+.payment__details .card-element {
+    font-size: 29px!important;
 }

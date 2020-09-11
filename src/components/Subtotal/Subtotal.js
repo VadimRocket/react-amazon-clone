@@ -2,17 +2,11 @@ import React from 'react'
 import  './Subtotal.css';
 import CurrencyFormat from "react-currency-format"
 import { useStateValue } from '../../context/StateProvider'
+import { getBasketTotal } from '../../context/reducer';
 import { useHistory } from 'react-router-dom';
 
 function Subtotal() {
     const [ {basket} ] = useStateValue();
-    const getBasketTotal = (basket) => {
-        let total = 0;
-        basket.map(item =>(
-            total += item.price
-        ))
-        return total;
-    }
 
     const history = useHistory();
     

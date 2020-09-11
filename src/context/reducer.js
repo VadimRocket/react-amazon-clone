@@ -9,6 +9,15 @@ export const actionTypes = {
     SET_USER: "SET_USER",
 }
 
+export const getBasketTotal = (basket) => {
+    let total = 0;
+    basket.map(item =>(
+        total += item.price
+    ))
+    return total;
+}
+
+
 const reducer = (state, action) => {
     console.log('action', action);
     switch (action.type) {
