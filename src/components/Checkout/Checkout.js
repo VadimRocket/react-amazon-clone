@@ -3,18 +3,11 @@ import './Checkout.css'
 import Subtotal from '../Subtotal/Subtotal';
 import CheckoutProduct from '../CheckoutProduct/CheckoutProduct'
 import { useStateValue } from '../../context/StateProvider';
-import { actionTypes } from '../../context/reducer';
 import FlipMove from 'react-flip-move';
+
 function Checkout() {
 
     const [{ basket, user }, dispatch] = useStateValue();
-
-   function removeFromBasket(id) {
-       dispatch({
-        type: actionTypes.REMOVE_FROM_BASKET,
-        id:id,
-       })
-   }
 
     return (
         <div className='checkout'>
@@ -42,7 +35,6 @@ function Checkout() {
                         image={product.image}
                         price={product.price}
                         rating={product.rating}
-                        removeProduct={removeFromBasket}
                      /> 
                      )
                     )}

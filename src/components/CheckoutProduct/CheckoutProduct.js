@@ -1,9 +1,20 @@
 import React from 'react'
 import './CheckoutProduct.css'
 import ProductRating from '../ProductRating/ProductRating';
+import { useStateValue } from '../../context/StateProvider';
+import { actionTypes } from '../../context/reducer';
 
-// const CheckoutProduct  = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref ) =>  (
-    const CheckoutProduct = React.forwardRef(({ id, title, image, price, rating, removeProduct }, ref) => {
+    const CheckoutProduct = React.forwardRef(({ id, title, image, price, rating }, ref) => {
+
+        const [{ basket }, dispatch] = useStateValue();
+
+        function removeFromBasket() {
+            dispatch({
+             type: actionTypes.REMOVE_FROM_BASKET,
+             id
+            })
+        }
+
         return (
         <div className="checkoutProduct" ref={ref}>
             <img className="checkoutProduct__image" src={image} alt={title} />
@@ -16,7 +27,7 @@ import ProductRating from '../ProductRating/ProductRating';
                 <div className="checkoutProduct__rating">
                    <ProductRating rating={rating}/>
                 </div>
-                <button onClick={() => removeProduct(id)}>Delete</button>
+                <button onClick={removeFromBasket}>Delete</button>
             </div>
         </div>
    )
