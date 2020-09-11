@@ -6,11 +6,19 @@
     position: sticky;
     top:0;
     z-index: 2;
+    flex-wrap: wrap;
+    padding: 10px 10px;
 }
 .header__logo {
     width: 100px;
     margin: 18px 20px 0 20px;
 }
+@media screen and (max-width:320px) {
+    .header__logo {
+        margin: 18px 20px 10px;
+    }
+}
+
 .header__search {
     display: flex;
     flex: 1;
