@@ -12,7 +12,7 @@ class Button extends Component {
     label: PropTypes.string,
     size: PropTypes.string,
     disabledClassName: PropTypes.string,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -21,17 +21,17 @@ class Button extends Component {
     size: "",
     variant: "basic",
     disabled: false,
-    disabledClassName: ""
+    disabledClassName: "",
   };
 
-  handleButtonClick = event => {
+  handleButtonClick = (event) => {
     const { onClick, disabled } = this.props;
 
     if (disabled) return;
 
     onClick &&
       onClick({
-        event
+        event,
       });
   };
 
@@ -55,7 +55,7 @@ class Button extends Component {
       size,
       variant,
       disabled,
-      disabledClassName
+      disabledClassName,
     } = this.props;
 
     const _className = cx(
@@ -65,16 +65,14 @@ class Button extends Component {
       styles[variant],
       {
         [styles.disabled]: disabled,
-        [disabledClassName]: disabled
+        [disabledClassName]: disabled,
       }
     );
 
     return (
-      
       <div onClick={this.handleButtonClick} className={_className}>
-         {this.renderChildren()}
+        {this.renderChildren()}
       </div>
-      
     );
   }
 }

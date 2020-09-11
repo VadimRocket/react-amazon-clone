@@ -9,7 +9,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 12px;;
+  height: 12px;
   min-width: 36px;
   border-radius: 4px;
   background-color: #fff;
@@ -36,20 +36,20 @@
 }
 
 .outline:hover {
-    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
-    border-color: #a88734 #9c7e31 #846a29;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border-color: #a88734 #9c7e31 #846a29;
   color: #fff;
 }
 
 .basic {
-  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
 }
 
 .basic:hover {
   border-color: #a88734 #9c7e31 #846a29;
-  background: linear-gradient(to bottom,#f0c14b,#f0c14b);
+  background: linear-gradient(to bottom, #f0c14b, #f0c14b);
 }
 
 .link {
