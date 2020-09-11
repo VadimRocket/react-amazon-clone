@@ -66,9 +66,6 @@ function Payment() {
                   created: paymentIntent.created
               })
 
-
-
-
             // paymentIntent = payment confirmation
             setSucceeded(true);
             setError(null)

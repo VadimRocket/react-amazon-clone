@@ -4,7 +4,7 @@ import ProductRating from '../ProductRating/ProductRating';
 import { useStateValue } from '../../context/StateProvider';
 import { actionTypes } from '../../context/reducer';
 
-    const CheckoutProduct = React.forwardRef(({ id, title, image, price, rating }, ref) => {
+    const CheckoutProduct = React.forwardRef(({ id, title, image, price, rating, hideButton }, ref) => {
 
         const [{ basket }, dispatch] = useStateValue();
 
@@ -27,7 +27,10 @@ import { actionTypes } from '../../context/reducer';
                 <div className="checkoutProduct__rating">
                    <ProductRating rating={rating}/>
                 </div>
-                <button onClick={removeFromBasket}>Delete</button>
+                {!hideButton && (
+                     <button onClick={removeFromBasket}>Delete</button>
+                )}
+               
             </div>
         </div>
    )
