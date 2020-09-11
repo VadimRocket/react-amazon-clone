@@ -11,6 +11,12 @@
     top: 40px;
     right: 20px;
   }
+  @media screen and (max-width:474px) {
+    .order__id {
+        top: 15px;
+        left: 40px;
+    }
+}
 
 .order__total {
     font-weight: 500;

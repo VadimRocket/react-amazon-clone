@@ -2,6 +2,16 @@
  display: flex;
  margin: 40px 0;
 }
+@media screen and (max-width:767px) {
+    .checkoutProduct {
+        flex-direction: column;
+    }
+    .checkoutProduct__image {
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+}
+
 .checkoutProduct__image {
     width: 180px;
     height: auto;
