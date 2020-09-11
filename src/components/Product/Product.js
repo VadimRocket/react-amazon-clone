@@ -3,6 +3,7 @@ import './Product.css';
 import { useStateValue } from '../../context/StateProvider';
 import { actionTypes } from '../../context/reducer';
 import ProductRating from '../ProductRating/ProductRating';
+import Button from '../Button';
 
 function Product({ id, title,  price, rating, image}) {
 
@@ -35,8 +36,8 @@ function Product({ id, title,  price, rating, image}) {
                     <ProductRating rating={rating} />
                 </div>
             </div>
-            <img src={image}  alt='' />
-            <button onClick={addToBasket}>Add to Cart</button>
+            <img src={image}  alt={title} />
+            <Button label="Add to Cart" variant="basic" onClick={addToBasket} />
         </div>
     )
 }

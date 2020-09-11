@@ -39,8 +39,8 @@ function Payment() {
 
     },[basket])
 
-    console.log('the secret is >>> ', clientSecret)
-    console.log("user", user)
+    // console.log('the secret is >>> ', clientSecret)
+    // console.log("user", user)
 
     // for the form: cb fn
     async function handleSubmit(event) {
@@ -143,10 +143,13 @@ function Payment() {
                                     displayType={'text'}
                                     thousandSeparator={true}
                                     prefix={'$'}
-                                />
+                                /> 
+                                
                                 <button disabled={ processing || disabled || succeeded }>
                                     <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
                                 </button>
+
+                                
                             </div>
                              {/* Show Errors if wrong Payment method */}
                              {error && <div>{error}</div>}
