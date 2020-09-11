@@ -10,6 +10,7 @@ import { auth } from './firebase/firebase';
 import { useStateValue } from './context/StateProvider';
 import { actionTypes } from './context/reducer';
 import Payment from './components/Payment/Payment';
+import Orders from './components/Orders/Orders';
 // stripe
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
@@ -47,6 +48,10 @@ function App() {
       <div className="app">
       {/* home, login, checkout */}
       <Switch>
+      <Route path="/orders">
+          <Header />
+          <Orders />
+        </Route>
         <Route path="/login">
           <Header />
           <Login />

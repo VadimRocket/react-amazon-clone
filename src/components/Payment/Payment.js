@@ -71,8 +71,6 @@ function Payment() {
         setError(event.error ? event.error.message : '')
     }
 
-
-
     return (
         <div className='payment'>
             <div className='payment__box'>
