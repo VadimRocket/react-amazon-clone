@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from "react-currency-format"
 import { getBasketTotal } from '../../context/reducer';
+import { actionTypes } from '../../context/reducer';
 import axios from '../../context/axios';
 
 function Payment() {
@@ -55,6 +56,10 @@ function Payment() {
             setSucceeded(true);
             setError(null)
             setProcessing(false)
+            
+            dispatch({
+                type: actionTypes.EMPTY_BASKET
+            })
 
             history.replace('/orders')
         })
