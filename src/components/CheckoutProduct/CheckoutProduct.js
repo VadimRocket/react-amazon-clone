@@ -4,11 +4,22 @@ import ProductRating from "../ProductRating/ProductRating";
 import { useStateValue } from "../../context/StateProvider";
 import { actionTypes } from "../../context/reducer";
 import Button from "../Button";
+import PropTypes from 'prop-types';
 
 const CheckoutProduct = React.forwardRef(
   ({ id, title, image, price, rating, hideButton }, ref) => {
-    const [{ basket }, dispatch] = useStateValue();
+ 
+    CheckoutProduct.propTypes = {
+      id: PropTypes.string,
+      title: PropTypes.string,
+      image: PropTypes.string,
+      price: PropTypes.number,
+      rating: PropTypes.number,
+      hideButton: PropTypes.func,
+      ref: PropTypes.func,
+  };
 
+    const [ dispatch ] = useStateValue();
     function removeFromBasket() {
       dispatch({
         type: actionTypes.REMOVE_FROM_BASKET,

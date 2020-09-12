@@ -4,8 +4,18 @@ import { useStateValue } from "../../context/StateProvider";
 import { actionTypes } from "../../context/reducer";
 import ProductRating from "../ProductRating/ProductRating";
 import Button from "../Button";
+import PropTypes from 'prop-types';
 
 function Product({ id, title, price, rating, image }) {
+
+  Product.propTypes = {
+    id: PropTypes.string,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    rating: PropTypes.number,
+};
+
   const [{ basket }, dispatch] = useStateValue();
   // console.log('basket', basket)
 

@@ -2,7 +2,6 @@ import React from "react";
 import banner from "../../images/video_banner.jpg";
 import "./Home.css";
 import Product from "../Product/Product";
-import Button from "../Button";
 
 export default function Home() {
   return (
