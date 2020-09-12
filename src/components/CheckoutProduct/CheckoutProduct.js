@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const CheckoutProduct = React.forwardRef(
   ({ id, title, image, price, rating, hideButton }, ref) => {
- 
+
     CheckoutProduct.propTypes = {
       id: PropTypes.string,
       title: PropTypes.string,
