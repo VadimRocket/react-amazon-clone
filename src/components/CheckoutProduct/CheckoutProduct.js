@@ -18,12 +18,12 @@ const CheckoutProduct = React.forwardRef(
       hideButton: PropTypes.func,
       ref: PropTypes.func,
   };
+  const [{ basket }, dispatch] = useStateValue();
 
-    const [ dispatch ] = useStateValue();
     function removeFromBasket() {
       dispatch({
         type: actionTypes.REMOVE_FROM_BASKET,
-        id,
+        id: id,
       });
     }
 
