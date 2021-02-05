@@ -17,7 +17,7 @@ function ProductRating({ rating }) {
         .map((_, index) => (
           <StarIcon key={index} fontSize="small" />
         ))}
-      {halfRating > 0 ? <StarHalfIcon /> : <></>}
+      {halfRating > 0 ? <StarHalfIcon style={{fontSize: "1.26rem"}}/> : <></>}
     </>
   );
 }
