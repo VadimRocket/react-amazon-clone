@@ -11,7 +11,8 @@ import banner_5 from '../../images/banners/5.jpg';
 export default () => (
   <Carousel 
     autoPlay
-    swipeable
+	swipeable
+	infiniteLoop
     showIndicators={false} 
     showThumbs={false} 
     showArrows={false}
