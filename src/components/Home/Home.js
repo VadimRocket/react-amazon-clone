@@ -1,12 +1,16 @@
 import React from "react";
-import banner from "../../images/video_banner.jpg";
 import "./Home.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+// components
 import Product from "../Product/Product";
+import Carousel from "../Carousel/Carousel";
 
 export default function Home() {
   return (
     <div className="home">
-      <img className="home__banner" src={banner} alt="home-banner" />
+     <div className="home__banner">
+       <Carousel />
+     </div>
       <div className="home__row">
         <Product
           id="1"
